@@ -1,0 +1,84 @@
+<main>
+    <div class="container-fluid g-0 p-2">
+      <div class="row g-0">
+        <div class="col-md-12">
+          <h2>Pending</h2>
+        </div>
+      </div>
+      <div class="row g-0">
+        <div class="col-md-12" *ngFor="let testimonial of testimonials"  >
+          <div class="card"*ngIf="testimonial.status === 'pending'">
+            <div class="card-body">
+              <div class="row g-0">
+                <div class="col-md-2 d-flex justify-content-center align-items-center">
+                  <div class="profile-img">
+                    <img src="../../assets/Images/Profile-01.jpg" alt="Profile Image" class="profile">
+                  </div>
+                </div>
+                <div class="col ps-2">
+                    <div class="row g-0 align-items-center">
+                      <div class="col-md-12">
+                        <span class="name fw-bold"><i class="bi bi-arrow-90deg-left"></i> {{testimonial.user.name}}</span>
+                      </div>
+                    </div>
+                    <div class="row g-0 mt-3">
+                      <div class="col-md-12">
+                        <p class="two-lines">{{testimonial.text}}</p>
+                      </div>
+                    </div>
+                    <div class="row g-0 mt-3">
+                      <div class="col-md-12 d-flex justify-content-end align-items-center">
+                        <div class="btn-group" role="group">
+                          <button type="button" (click)="removeTestimonial(testimonial)" class="btn btn-success text-green">Accept</button>
+                          <button type="button" (click)="removeTestimonial(testimonial)" class="btn btn-danger text-red ms-2">Reject</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row g-0 mt-5">
+        <div class="col-md-12">
+          <h2>Approved</h2>
+        </div>
+      </div>
+      <div class="col-md-12" *ngFor="let testimonial of testimonials">
+        <div class="card" *ngIf="testimonial.status === 'approved'">
+          <div class="card-body">
+            <div class="row g-0">
+              <div class="col-md-2 d-flex justify-content-center align-items-center">
+                <div class="profile-img">
+                  <img src="../../assets/Images/Profile-01.jpg" alt="Profile Image" class="profile">
+                </div>
+              </div>
+              <div class="col ps-2">
+                <div class="row g-0">
+                  <div class="col-md-12">
+                    <span class="name fw-bold"><i class="bi bi-arrow-90deg-left"></i> {{testimonial.user.name}}</span>
+                  </div>
+                </div>
+                <div class="row g-0 mt-3">
+                  <div class="col-md-12">
+                    <p class="two-lines">{{testimonial.text}}</p>
+                  </div>
+                </div>
+                <div class="row g-0 mt-3">
+                  <div class="col-md-12 d-flex justify-content-end align-items-center">
+                    <div class="btn-group" role="group">
+                      <button type="button" (click)="removeTestimonial(testimonial)" class="btn btn-success text-green">Accept</button>
+                      <button type="button" (click)="removeTestimonial(testimonial)" class="btn btn-danger text-red">Reject</button>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</main>          
