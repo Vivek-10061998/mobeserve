@@ -1,3 +1,4 @@
+
 <main>
     <div class="container-fluid g-0 p-2">
       <div class="row g-0">
@@ -29,8 +30,8 @@
                     <div class="row g-0 mt-3">
                       <div class="col-md-12 d-flex justify-content-end align-items-center">
                         <div class="btn-group" role="group">
-                          <button type="button" (click)="removeTestimonial(testimonial)" class="btn btn-success text-green">Accept</button>
-                          <button type="button" (click)="removeTestimonial(testimonial)" class="btn btn-danger text-red ms-2">Reject</button>
+                          <button type="button" (click)="approveTestimonial(testimonial)" class="btn btn-success text-green">Accept</button>
+                          <button type="button" (click)="rejectTestimonial(testimonial)" class="btn btn-danger text-red ms-2">Reject</button>
                         </div>
                       </div>
                     </div>
@@ -69,8 +70,7 @@
                 <div class="row g-0 mt-3">
                   <div class="col-md-12 d-flex justify-content-end align-items-center">
                     <div class="btn-group" role="group">
-                      <button type="button" (click)="removeTestimonial(testimonial)" class="btn btn-success text-green">Accept</button>
-                      <button type="button" (click)="removeTestimonial(testimonial)" class="btn btn-danger text-red">Reject</button>
+                      <button type="button" (click)="rejectTestimonial(testimonial)" class="btn btn-danger text-red">Reject</button>
                     </div>
                     
                   </div>

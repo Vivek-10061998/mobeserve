@@ -1,25 +1,32 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-my-testimonial',
   templateUrl: './my-testimonial.component.html',
   styleUrls: ['./my-testimonial.component.css']
 })
-export class MyTestimonialComponent {
+export class MyTestimonialComponent implements OnInit {
+  ngOnInit(): void {
+
+  }
   @Input() testimonials!: any[] 
   approvedTestimonials: any[] = [];
   rejectedTestimonials: any[] = [];
 
-  removeTestimonial(testimonial: any) {
-    const index = this.testimonials.indexOf(testimonial);
-    if (index !== -1) {
-      if (testimonial.status === 'pending') {
-        this.testimonials.splice(index, 1);
-      } else if (testimonial.status === 'approved') {
-        this.approvedTestimonials.splice(index, 1);
-      } else if (testimonial.status === 'rejected') {
-        this.rejectedTestimonials.splice(index, 1);
-      }
+  searchTerm: string = '';
+  testimonialSearchTerm: any;
+ 
+  approveTestimonial(testimonial: any) {
+    testimonial.status = 'approved';
+    if (!this.approvedTestimonials.includes(testimonial)) {
+      this.approvedTestimonials.push(testimonial);
     }
-  }  
+  }
+  
+  rejectTestimonial(testimonial: any) {
+    testimonial.status = 'rejected';
+    if (!this.rejectedTestimonials.includes(testimonial)) {
+      this.rejectedTestimonials.push(testimonial);
+    }
+  }
 }
